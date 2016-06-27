@@ -1,0 +1,8 @@
+
+	http://my.mcaster.net:8080/html/welcome.jsp
+
+	http://my.mcaster.net:8080/html/j_security_check?j_username=0041226&j_password=qZ8tcD
+	
+	http://my.mcaster.net:8080/html/tree.jsp?no=UA422400009&period=470&depth=-
+	
+	http://my.mcaster.net:8080/logout
