@@ -1,10 +1,10 @@
 <?php
-	// Получение случайного значения байта (в промежутке 00 .. FF)
+	// ГЏГ®Г«ГіГ·ГҐГ­ГЁГҐ Г±Г«ГіГ·Г Г©Г­Г®ГЈГ® Г§Г­Г Г·ГҐГ­ГЁГї ГЎГ Г©ГІГ  (Гў ГЇГ°Г®Г¬ГҐГ¦ГіГІГЄГҐ 00 .. FF)
 	function getRandomByte() {
 		return $rand_val = sprintf("%02X", rand(0, 255));;
 	}
 	
-	// Получение случайного значения для Cookie
+	// ГЏГ®Г«ГіГ·ГҐГ­ГЁГҐ Г±Г«ГіГ·Г Г©Г­Г®ГЈГ® Г§Г­Г Г·ГҐГ­ГЁГї Г¤Г«Гї Cookie
 	function getRandomCookie() {
 		$cookie = '';
 		for ($i=0; $i++ < 16;)
@@ -14,21 +14,21 @@
 		return $cookie;
 	}
 
-	// Функция получения Cookies от сервера
+	// Г”ГіГ­ГЄГ¶ГЁГї ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Cookies Г®ГІ Г±ГҐГ°ГўГҐГ°Г 
 	function getCookies ($http_response_header) {
 		$cookies = array();
 		foreach ($http_response_header as $hdr) {
 			if (preg_match('/^Set-Cookie:\s*([^;]+)/', $hdr, $matches)) {
 				parse_str($matches[1], $tmp);
-				// $cookies += $tmp;	// добавляет ТОЛЬКО первый найденный параметр Cookie
-				$cookies = $tmp;		// добавляет ТОЛЬКО последний найденный параметр Cookie
+				// $cookies += $tmp;	// Г¤Г®ГЎГ ГўГ«ГїГҐГІ Г’ГЋГ‹ГњГЉГЋ ГЇГҐГ°ГўГ»Г© Г­Г Г©Г¤ГҐГ­Г­Г»Г© ГЇГ Г°Г Г¬ГҐГІГ° Cookie
+				$cookies = $tmp;		// Г¤Г®ГЎГ ГўГ«ГїГҐГІ Г’ГЋГ‹ГњГЉГЋ ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ© Г­Г Г©Г¤ГҐГ­Г­Г»Г© ГЇГ Г°Г Г¬ГҐГІГ° Cookie
 			}
 		}
 		if($cookies != null)
 			return $cookies['JSESSIONID'];
 	}
 
-	// Функция вывода RESPONSE HEADER запроса
+	// Г”ГіГ­ГЄГ¶ГЁГї ГўГ»ГўГ®Г¤Г  RESPONSE HEADER Г§Г ГЇГ°Г®Г±Г 
 	function getResponseHeader ($http_response_header) {
 		$response = "</br><b><u>Response header:</u></b></br>";
 		foreach ($http_response_header as $hdr)
@@ -36,7 +36,7 @@
 		return $response;
 	}
 	
-	// Функция отправки GET-запроса
+	// Г”ГіГ­ГЄГ¶ГЁГї Г®ГІГЇГ°Г ГўГЄГЁ GET-Г§Г ГЇГ°Г®Г±Г 
 	function getRequest ($url, $header, $errors) {
 		$opts = array(
 			"http" => array(
@@ -57,7 +57,7 @@
 		return $result;
 	}
 
-	// Функция отправки POST-запроса
+	// Г”ГіГ­ГЄГ¶ГЁГї Г®ГІГЇГ°Г ГўГЄГЁ POST-Г§Г ГЇГ°Г®Г±Г 
 	function postRequest ($url, $header, $data, $errors) {
 		$opts = array(
 			"http" => array(
@@ -79,7 +79,7 @@
 		return $result;
 	}
 	
-	// Прототип функции для построения REQUEST HEADER
+	// ГЏГ°Г®ГІГ®ГІГЁГЇ ГґГіГ­ГЄГ¶ГЁГЁ Г¤Г«Гї ГЇГ®Г±ГІГ°Г®ГҐГ­ГЁГї REQUEST HEADER
 	function buildHeader () {
 		return $header;
 	}
@@ -93,15 +93,15 @@
 	$user_agent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0";	
 	$content_type = "application/x-www-form-urlencoded";
 	
-	// Данные POST-запроса для авторизации в системе
+	// Г„Г Г­Г­Г»ГҐ POST-Г§Г ГЇГ°Г®Г±Г  Г¤Г«Гї Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГЁ Гў Г±ГЁГ±ГІГҐГ¬ГҐ
 	$auth_data = http_build_query(
 		array(
-			"j_username" => "0041226",
-			"j_password" => "qZ8tcD"
+			"j_username" => "",
+			"j_password" => ""
 		)
 	);
 	
-	// Данные POST-запроса для получения списка контрактов
+	// Г„Г Г­Г­Г»ГҐ POST-Г§Г ГЇГ°Г®Г±Г  Г¤Г«Гї ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г±ГЇГЁГ±ГЄГ  ГЄГ®Г­ГІГ°Г ГЄГІГ®Гў
 	$request_data = http_build_query(
 		array(
 			"no" => "UA422400009",
@@ -110,7 +110,7 @@
 		)
 	);
 	
-	// Запрос страницы логина
+	// Г‡Г ГЇГ°Г®Г± Г±ГІГ°Г Г­ГЁГ¶Г» Г«Г®ГЈГЁГ­Г 
 	$last_cookie = getRandomCookie();
 	$get_header = "User-Agent: ".$user_agent.PHP_EOL."Cookie: JSESSIONID=".$last_cookie."; p=-; __lfcc=1";
 	$response = getRequest($main_url, $get_header, true);
@@ -121,7 +121,7 @@
 	echo "</br>".$response['respHeader'];
 	echo $response['page'];
 	
-	// Отправка данных авторизации
+	// ГЋГІГЇГ°Г ГўГЄГ  Г¤Г Г­Г­Г»Гµ Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГЁ
 	$post_header = "User-Agent: ".$user_agent.PHP_EOL."Referer: ".$main_url.PHP_EOL."Cookie: JSESSIONID=".$last_cookie."; p=-; __lfcc=1".PHP_EOL."Content-type: ".$content_type;
 	$response = postRequest($login_url, $post_header, $auth_data, true);
 	echo "</br><h3><font color = 'red'><b>Auth data sending</b></font></h3>";
@@ -131,7 +131,7 @@
 	echo "</br>".$response['respHeader'];
 	echo $response['page'];
 	
-	// Отправка данных для получения списка контрактов
+	// ГЋГІГЇГ°Г ГўГЄГ  Г¤Г Г­Г­Г»Гµ Г¤Г«Гї ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г±ГЇГЁГ±ГЄГ  ГЄГ®Г­ГІГ°Г ГЄГІГ®Гў
 	$post_header = "User-Agent: ".$user_agent.PHP_EOL."Referer: ".$main_url.PHP_EOL."Cookie: JSESSIONID=".$last_cookie."; p=-; __lfcc=1".PHP_EOL."Content-type: ".$content_type;
 	$response = postRequest($request_url, $post_header, $request_data, true);
 	echo "</br><h3><font color = 'red'><b>Contracts data requesting</b></font></h3>";
@@ -141,7 +141,7 @@
 	echo "Cookie from Site = ".$last_cookie;
 	echo $response['page'];
 	
-	// Выполнение выхода из системы
+	// Г‚Г»ГЇГ®Г«Г­ГҐГ­ГЁГҐ ГўГ»ГµГ®Г¤Г  ГЁГ§ Г±ГЁГ±ГІГҐГ¬Г»
 	$get_header = "User-Agent: ".$user_agent.PHP_EOL."Referer: ".$main_url.PHP_EOL."Cookie: JSESSIONID=".$last_cookie."; p=-; __lfcc=1".PHP_EOL."Content-type: ".$content_type;
 	$response = getRequest($logout_url, $get_header, true);
 	echo "</br><h3><font color = 'red'><b>Logout from system</b></font></h3>";
